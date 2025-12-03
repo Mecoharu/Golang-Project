@@ -10,6 +10,6 @@ The website features two user types: Admin and Guest.
 - Admins have full access to create, edit, and delete recipes, but must log in first.
 - Guests can only view recipes on the platform.
 
-Link Demo Application : https://youtu.be/vnz1uRxmjX8
+Link Youtube Video : https://youtu.be/vnz1uRxmjX8
 
 
