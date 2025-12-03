@@ -34,7 +34,7 @@ type Recipe struct {
 	UserID       uint
 	User         User
 }
-// One to Many relationship , satu user bisa punya banyak resep 
+
 
 var db *gorm.DB
 
