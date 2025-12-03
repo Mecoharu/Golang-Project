@@ -53,7 +53,7 @@ func main() {
 	initDB()
 	r := gin.Default()
 
-	// Setup Session
+
 	store := cookie.NewStore([]byte("secret"))
 	r.Use(sessions.Sessions("mysession", store))
 
@@ -68,7 +68,6 @@ func main() {
 	r.Static("/uploads", "./uploads")
 
 	// Routes
-	
 	// Public Routes (Guest bisa akses)
 	r.GET("/", showDashboard)
 	r.GET("/recipe/:id", showRecipeDetail) 
@@ -171,7 +170,7 @@ func showCreateRecipe(c *gin.Context) {
 	})
 }
 
-// Handle untuk form edit
+// function form edit
 func showEditRecipe(c *gin.Context) {
 	id := c.Param("id")
 	session := sessions.Default(c)
@@ -198,6 +197,7 @@ func showEditRecipe(c *gin.Context) {
 	})
 }
 
+//Create
 func createRecipe(c *gin.Context) {
 	session := sessions.Default(c)
 	userID := session.Get("user_id").(uint)
@@ -238,7 +238,7 @@ func updateRecipe(c *gin.Context) {
 		return
 	}
 
-	// Cek kepemilikan
+	
 	if recipe.UserID != userID {
 		c.Redirect(http.StatusFound, "/")
 		return
@@ -271,7 +271,6 @@ func deleteRecipe(c *gin.Context) {
 }
 
 // AUTH HANDLERS
-
 func showLogin(c *gin.Context) {
 	c.HTML(http.StatusOK, "auth.html", gin.H{"Type": "Login"})
 }
